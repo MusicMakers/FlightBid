@@ -86,39 +86,39 @@ public class CartFragment extends Fragment {
             }
         });
 
-        cartFooter = view.findViewById(R.id.cart_footer);
-        cartItemCountTv = (TextView) view.findViewById(R.id.cart_footer_quantity);
-        cartTotalPriceTv = (TextView) view.findViewById(R.id.cart_footer_price);
-        view.findViewById(R.id.cart_footer_action).setOnClickListener(new OnSingleClickListener() {
-            @Override
-            public void onSingleClick(View view) {
-                DiscountDialogFragment discountDialog = DiscountDialogFragment.newInstance(new RequestListener() {
-                    @Override
-                    public void requestSuccess(long newId) {
-                        getCartContent();
-                    }
+//        cartFooter = view.findViewById(R.id.cart_footer);
+//        cartItemCountTv = (TextView) view.findViewById(R.id.cart_footer_quantity);
+//        cartTotalPriceTv = (TextView) view.findViewById(R.id.cart_footer_price);
+//        view.findViewById(R.id.cart_footer_action).setOnClickListener(new OnSingleClickListener() {
+//            @Override
+//            public void onSingleClick(View view) {
+//                DiscountDialogFragment discountDialog = DiscountDialogFragment.newInstance(new RequestListener() {
+//                    @Override
+//                    public void requestSuccess(long newId) {
+//                        getCartContent();
+//                    }
+//
+//                    @Override
+//                    public void requestFailed(VolleyError error) {
+//                        MsgUtils.logAndShowErrorMessage(getActivity(), error);
+//                    }
+//                });
+//
+//                if (discountDialog != null) {
+//                    discountDialog.show(getFragmentManager(), DiscountDialogFragment.class.getSimpleName());
+//                }
+//            }
+//        });
 
-                    @Override
-                    public void requestFailed(VolleyError error) {
-                        MsgUtils.logAndShowErrorMessage(getActivity(), error);
-                    }
-                });
-
-                if (discountDialog != null) {
-                    discountDialog.show(getFragmentManager(), DiscountDialogFragment.class.getSimpleName());
-                }
-            }
-        });
-
-        Button order = (Button) view.findViewById(R.id.cart_order);
-        order.setOnClickListener(new OnSingleClickListener() {
-            @Override
-            public void onSingleClick(View v) {
-                if (getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).onOrderCreateSelected();
-                }
-            }
-        });
+//        Button order = (Button) view.findViewById(R.id.cart_order);
+//        order.setOnClickListener(new OnSingleClickListener() {
+//            @Override
+//            public void onSingleClick(View v) {
+//                if (getActivity() instanceof MainActivity) {
+//                    ((MainActivity) getActivity()).onOrderCreateSelected();
+//                }
+//            }
+//        });
 
         getCartContent();
         return view;
@@ -128,7 +128,6 @@ public class CartFragment extends Fragment {
         User user = SettingsMy.getActiveUser();
         if (user != null) {
             String url = String.format(EndPoints.CART, SettingsMy.getActualNonNullShop(getActivity()).getId());
-
             progressDialog.show();
             GsonRequest<Cart> getCart = new GsonRequest<>(Request.Method.GET, url, null, Cart.class,
                     new Response.Listener<Cart>() {
@@ -143,8 +142,8 @@ public class CartFragment extends Fragment {
                                 setCartVisibility(true);
                                 cartRecyclerAdapter.refreshItems(cart);
 
-                                cartItemCountTv.setText(getString(R.string.format_quantity, cart.getProductCount()));
-                                cartTotalPriceTv.setText(cart.getTotalPriceFormatted());
+//                                cartItemCountTv.setText(getString(R.string.format_quantity, cart.getProductCount()));
+//                                cartTotalPriceTv.setText(cart.getTotalPriceFormatted());
                             }
                         }
                     }, new Response.ErrorListener() {

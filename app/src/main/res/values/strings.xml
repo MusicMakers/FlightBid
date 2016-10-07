@@ -19,7 +19,7 @@
     <string name="Content_is_empty">Content is empty.</string>
 
     <!-- Strings related to splash screen -->
-    <string name="Select_shop">Select shop</string>
+    <string name="Select_shop">Select language</string>
     <string name="Select_the_country_where_you_want_to_shop">Select the country \n where you want to shop </string>
     <string name="Continue">Continue</string>
 
@@ -28,7 +28,7 @@
     <string name="All_categories">Continents</string>
     <string name="menu_action_search">Search</string>
     <string name="Type_your_dream_destination">Type your dream destination</string>
-    <string name="menu_action_cart">Shopping cart</string>
+    <string name="menu_action_cart">My Bids</string>
     <string name="menu_action_wishlist">Wishlist</string>
 
 
@@ -108,13 +108,13 @@
 
 
     <!-- Cart and order related strings -->
-    <string name="Shopping_cart">Active Bids</string>
-    <string name="Your_cart_is_empty">There are no active bids</string>
-    <string name="START_SHOPPING">START SHOPPING</string>
+    <string name="Shopping_cart">My Bids</string>
+    <string name="Your_cart_is_empty">You have no actve bids</string>
+    <string name="START_SHOPPING">START BIDDING</string>
     <string name="SHIPPING_AND_PAYMENT">PAYMENT FOR SUCCESSFUL BID</string>
     <string name="Please_select_a_size">Please select a size.</string>
-    <string name="added_to_cart">added to active bids</string>
-    <string name="Go_to_cart">Go to active bids</string>
+    <string name="added_to_cart">added to My Bids</string>
+    <string name="Go_to_cart">Go to My Bids</string>
     <string name="Delete">Delete</string>
     <string name="Edit">Edit</string>
     <string name="Update_item">Update:</string>
