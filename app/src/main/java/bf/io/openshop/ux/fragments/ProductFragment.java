@@ -669,67 +669,69 @@ public class ProductFragment extends Fragment {
 //            MsgUtils.showToast(getActivity(), MsgUtils.TOAST_TYPE_NO_SIZE_SELECTED, null, MsgUtils.ToastLength.SHORT);
 //            return;
 //        }
-//        User user = SettingsMy.getActiveUser();
-//        if (user != null) {
-//            if (addToCartImage != null) addToCartImage.setVisibility(View.INVISIBLE);
-//            if (addToCartProgress != null) addToCartProgress.setVisibility(View.VISIBLE);
-//
-//            // get selected radio button from radioGroup
-//            JSONObject jo = new JSONObject();
-//            try {
-//                jo.put(JsonUtils.TAG_PRODUCT_VARIANT_ID, selectedProductVariant.getId());
-//            } catch (JSONException e) {
-//                Timber.e(e, "Create json add product to cart exception");
-//                MsgUtils.showToast(getActivity(), MsgUtils.TOAST_TYPE_INTERNAL_ERROR, null, MsgUtils.ToastLength.SHORT);
-//                return;
-//            }
-//
-//            String url = String.format(EndPoints.CART, SettingsMy.getActualNonNullShop(getActivity()).getId());
-//            JsonRequest addToCart = new JsonRequest(Request.Method.POST, url, jo, new Response.Listener<JSONObject>() {
-//                @Override
-//                public void onResponse(JSONObject response) {
-//                    if (BuildConfig.DEBUG) Timber.d("AddToCartResponse: %s", response);
-//                    if (addToCartImage != null) addToCartImage.setVisibility(View.VISIBLE);
-//                    if (addToCartProgress != null)
-//                        addToCartProgress.setVisibility(View.INVISIBLE);
-//
-//                    Analytics.logAddProductToCart(product.getRemoteId(), product.getName(), product.getDiscountPrice());
-//                    MainActivity.updateCartCountNotification();
-//
-//                    String result = getString(R.string.Product) + " " + getString(R.string.added_to_cart);
-//                    Snackbar snackbar = Snackbar.make(productContainer, result, Snackbar.LENGTH_LONG)
-//                            .setActionTextColor(ContextCompat.getColor(getActivity(), R.color.colorAccent))
-//                            .setAction(R.string.Go_to_cart, new View.OnClickListener() {
-//                                @Override
-//                                public void onClick(View v) {
-//                                    if (getActivity() instanceof MainActivity)
-//                                        ((MainActivity) getActivity()).onCartSelected();
-//                                }
-//                            });
-//                    TextView textView = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
-//                    textView.setTextColor(Color.WHITE);
-//                    snackbar.show();
-//                }
-//            }, new Response.ErrorListener() {
-//                @Override
-//                public void onErrorResponse(VolleyError error) {
-//                    if (addToCartImage != null) addToCartImage.setVisibility(View.VISIBLE);
-//                    if (addToCartProgress != null) addToCartProgress.setVisibility(View.INVISIBLE);
-//                    MsgUtils.logAndShowErrorMessage(getActivity(), error);
-//                }
-//            }, getFragmentManager(), user.getAccessToken());
-//            addToCart.setRetryPolicy(MyApplication.getDefaultRetryPolice());
-//            addToCart.setShouldCache(false);
-//            MyApplication.getInstance().addToRequestQueue(addToCart, CONST.PRODUCT_REQUESTS_TAG);
-//        } else {
-//            LoginDialogFragment loginDialog = LoginDialogFragment.newInstance(new LoginDialogInterface() {
-//                @Override
-//                public void successfulLoginOrRegistration(User user) {
-//                    postProductToCart();
-//                }
-//            });
-//            loginDialog.show(getFragmentManager(), LoginDialogFragment.class.getSimpleName());
-//    }
+
+        User user = SettingsMy.getActiveUser();
+        if (user != null) {
+            if (addToCartImage != null) addToCartImage.setVisibility(View.INVISIBLE);
+            if (addToCartProgress != null) addToCartProgress.setVisibility(View.VISIBLE);
+
+            // get selected radio button from radioGroup
+            JSONObject jo = new JSONObject();
+            try {
+                System.out.println("Debugging:" + (selectedProductVariant==null));
+                jo.put(JsonUtils.TAG_PRODUCT_VARIANT_ID, 5999894);
+            } catch (JSONException e) {
+                Timber.e(e, "Create json add product to cart exception");
+                MsgUtils.showToast(getActivity(), MsgUtils.TOAST_TYPE_INTERNAL_ERROR, null, MsgUtils.ToastLength.SHORT);
+                return;
+            }
+
+            String url = String.format(EndPoints.CART, SettingsMy.getActualNonNullShop(getActivity()).getId());
+            JsonRequest addToCart = new JsonRequest(Request.Method.POST, url, jo, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    if (BuildConfig.DEBUG) Timber.d("AddToCartResponse: %s", response);
+                    if (addToCartImage != null) addToCartImage.setVisibility(View.VISIBLE);
+                    if (addToCartProgress != null)
+                        addToCartProgress.setVisibility(View.INVISIBLE);
+
+                    Analytics.logAddProductToCart(product.getRemoteId(), product.getName(), product.getDiscountPrice());
+                    MainActivity.updateCartCountNotification();
+
+                    String result = getString(R.string.Product) + " " + getString(R.string.added_to_cart);
+                    Snackbar snackbar = Snackbar.make(productContainer, result, Snackbar.LENGTH_LONG)
+                            .setActionTextColor(ContextCompat.getColor(getActivity(), R.color.colorAccent))
+                            .setAction(R.string.Go_to_cart, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    if (getActivity() instanceof MainActivity)
+                                        ((MainActivity) getActivity()).onCartSelected();
+                                }
+                            });
+                    TextView textView = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+                    textView.setTextColor(Color.WHITE);
+                    snackbar.show();
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    if (addToCartImage != null) addToCartImage.setVisibility(View.VISIBLE);
+                    if (addToCartProgress != null) addToCartProgress.setVisibility(View.INVISIBLE);
+                    MsgUtils.logAndShowErrorMessage(getActivity(), error);
+                }
+            }, getFragmentManager(), user.getAccessToken());
+            addToCart.setRetryPolicy(MyApplication.getDefaultRetryPolice());
+            addToCart.setShouldCache(false);
+            MyApplication.getInstance().addToRequestQueue(addToCart, CONST.PRODUCT_REQUESTS_TAG);
+        } else {
+            LoginDialogFragment loginDialog = LoginDialogFragment.newInstance(new LoginDialogInterface() {
+                @Override
+                public void successfulLoginOrRegistration(User user) {
+                    postProductToCart();
+                }
+            });
+            loginDialog.show(getFragmentManager(), LoginDialogFragment.class.getSimpleName());
+        }
     }
 
     /**
