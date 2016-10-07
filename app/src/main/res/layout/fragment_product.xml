@@ -110,18 +110,30 @@
                                 tools:text="995 eur"/>
 
                             <TextView
-                                android:id="@+id/product_price_discount_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="6dp"
-                                android:layout_marginStart="6dp"
-                                android:layout_toEndOf="@+id/product_price_discount"
-                                android:layout_toRightOf="@+id/product_price_discount"
-                                android:background="@color/colorAccent"
-                                android:padding="6dp"
-                                android:textColor="@color/textIconColorPrimary"
-                                android:textSize="15sp"
-                                tools:text="-50%"/>
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Highest Bid: 500, Lowest Bid: 119, No. of Bidders: 100/500"
+                                android:id="@+id/textView"
+                                android:textSize="12dp"
+                                android:gravity="center"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true" />
+
+                            <!--<TextView-->
+                                <!--android:id="@+id/product_price_discount_percent"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginLeft="6dp"-->
+                                <!--android:layout_marginStart="6dp"-->
+                                <!--android:layout_toEndOf="@+id/product_price_discount"-->
+                                <!--android:layout_toRightOf="@+id/product_price_discount"-->
+                                <!--android:background="@color/colorAccent"-->
+                                <!--android:padding="6dp"-->
+                                <!--android:textColor="@color/textIconColorPrimary"-->
+                                <!--android:textSize="15sp"-->
+                                <!--tools:text="-50%"/>-->
                         </RelativeLayout>
                     </LinearLayout>
 
@@ -133,6 +145,7 @@
                         android:background="@color/line_light_grey"/>
 
                     <!-- Product size and color-->
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -140,29 +153,20 @@
                         android:paddingLeft="@dimen/base_margin_horizontal"
                         android:paddingRight="@dimen/base_margin_horizontal">
 
-                        <Spinner
-                            android:id="@+id/product_color_spinner"
-                            android:layout_width="0dp"
+                        <EditText
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/spinner_background_black_baseline"
-                            android:gravity="start"
-                            android:paddingBottom="8dp"
-                            android:spinnerMode="dialog"/>
-
-                        <Spinner
-                            android:id="@+id/product_size_spinner"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@drawable/spinner_background_black_baseline"
-                            android:gravity="start"
-                            android:paddingBottom="8dp"
-                            android:spinnerMode="dialog"/>
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/bid"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor = "#F00"
+                            android:text="Enter bid here" />
                     </LinearLayout>
 
                     <!-- Add to cart button with progress bar-->
+
+
                     <RelativeLayout
                         android:id="@+id/product_add_to_cart_layout"
                         android:layout_width="match_parent"

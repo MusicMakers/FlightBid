@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -93,7 +94,7 @@ public class ProductFragment extends Fragment {
     private TextView productPriceDiscountTv;
     private TextView productPriceTv;
     private TextView productInfoTv;
-    private TextView productPriceDiscountPercentTv;
+//    private TextView productPriceDiscountPercentTv;
 
     /**
      * Refers to the displayed product.
@@ -161,13 +162,14 @@ public class ProductFragment extends Fragment {
         contentScrollLayout = (ScrollView) view.findViewById(R.id.product_scroll_layout);
 
         productNameTv = (TextView) view.findViewById(R.id.product_name);
-        productPriceDiscountPercentTv = (TextView) view.findViewById(R.id.product_price_discount_percent);
+//        productPriceDiscountPercentTv = (TextView) view.findViewById(R.id.product_price_discount_percent);
         productPriceDiscountTv = (TextView) view.findViewById(R.id.product_price_discount);
         productPriceTv = (TextView) view.findViewById(R.id.product_price);
         productInfoTv = (TextView) view.findViewById(R.id.product_info);
+        EditText et = (EditText) view.findViewById(R.id.bid);
 
-        colorSpinner = (Spinner) view.findViewById(R.id.product_color_spinner);
-        prepareSizeSpinner(view);
+//        colorSpinner = (Spinner) view.findViewById(R.id.product_color_spinner);
+//        prepareSizeSpinner(view);
 
         prepareButtons(view);
         prepareProductImagesLayout(view);
@@ -183,36 +185,36 @@ public class ProductFragment extends Fragment {
      *
      * @param view fragment base view.
      */
-    private void prepareSizeSpinner(View view) {
-        Spinner sizeSpinner = (Spinner) view.findViewById(R.id.product_size_spinner);
-        sizeVariantSpinnerAdapter = new SizeVariantSpinnerAdapter(getActivity());
-        sizeVariantSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sizeSpinner.setAdapter(sizeVariantSpinnerAdapter);
-        sizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ProductVariant selectedVariantSize = sizeVariantSpinnerAdapter.getItem(position);
-                if (selectedVariantSize != null && selectedVariantSize.getSize() != null) {
-                    Timber.d("selectedVariant: %d, selectedSize: %s", selectedVariantSize.getId(), selectedVariantSize.getSize().getValue());
-                    if (selectedVariantSize.getId() == CONST.DEFAULT_EMPTY_ID && selectedVariantSize.getSize().getId() != CONST.DEFAULT_EMPTY_ID) {
-                        selectedProductVariant = null;
-                    } else {
-                        selectedProductVariant = selectedVariantSize;
-                    }
-                } else {
-                    selectedProductVariant = null;
-                    Timber.e(new RuntimeException(), "User click on null product variant. WTF");
-                    MsgUtils.showToast(getActivity(), MsgUtils.TOAST_TYPE_INTERNAL_ERROR, "", MsgUtils.ToastLength.SHORT);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                selectedProductVariant = null;
-            }
-        });
-    }
+//    private void prepareSizeSpinner(View view) {
+//        Spinner sizeSpinner = (Spinner) view.findViewById(R.id.product_size_spinner);
+//        sizeVariantSpinnerAdapter = new SizeVariantSpinnerAdapter(getActivity());
+//        sizeVariantSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        sizeSpinner.setAdapter(sizeVariantSpinnerAdapter);
+//        sizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                ProductVariant selectedVariantSize = sizeVariantSpinnerAdapter.getItem(position);
+//                if (selectedVariantSize != null && selectedVariantSize.getSize() != null) {
+//                    Timber.d("selectedVariant: %d, selectedSize: %s", selectedVariantSize.getId(), selectedVariantSize.getSize().getValue());
+//                    if (selectedVariantSize.getId() == CONST.DEFAULT_EMPTY_ID && selectedVariantSize.getSize().getId() != CONST.DEFAULT_EMPTY_ID) {
+//                        selectedProductVariant = null;
+//                    } else {
+//                        selectedProductVariant = selectedVariantSize;
+//                    }
+//                } else {
+//                    selectedProductVariant = null;
+//                    Timber.e(new RuntimeException(), "User click on null product variant. WTF");
+//                    MsgUtils.showToast(getActivity(), MsgUtils.TOAST_TYPE_INTERNAL_ERROR, "", MsgUtils.ToastLength.SHORT);
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                selectedProductVariant = null;
+//            }
+//        });
+//    }
 
     /**
      * Prepare buttons views and listeners.
@@ -541,15 +543,15 @@ public class ProductFragment extends Fragment {
                 productPriceDiscountTv.setText(product.getDiscountPriceFormatted());
                 productPriceDiscountTv.setTextColor(ContextCompat.getColor(getContext(), R.color.textPrimary));
                 productPriceTv.setVisibility(View.GONE);
-                productPriceDiscountPercentTv.setVisibility(View.GONE);
+//                productPriceDiscountPercentTv.setVisibility(View.GONE);
             } else {
                 productPriceDiscountTv.setText(product.getDiscountPriceFormatted());
                 productPriceDiscountTv.setTextColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
                 productPriceTv.setVisibility(View.VISIBLE);
                 productPriceTv.setText(product.getPriceFormatted());
                 productPriceTv.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
-                productPriceDiscountPercentTv.setVisibility(View.VISIBLE);
-                productPriceDiscountPercentTv.setText(Utils.calculateDiscountPercent(getContext(), pr, dis));
+//                productPriceDiscountPercentTv.setVisibility(View.VISIBLE);
+//                productPriceDiscountPercentTv.setText(Utils.calculateDiscountPercent(getContext(), pr, dis));
             }
             if (product.getDescription() != null) {
                 productInfoTv.setMovementMethod(LinkMovementMethod.getInstance());
@@ -598,7 +600,7 @@ public class ProductFragment extends Fragment {
                     }
                 });
             } else {
-                colorSpinner.setVisibility(View.GONE);
+//                colorSpinner.setVisibility(View.GONE);
                 updateImagesAndSizeSpinner(product.getVariants().get(0).getColor());
             }
         } else {
@@ -635,7 +637,7 @@ public class ProductFragment extends Fragment {
             if (variantSizeArrayList.size() > 1) {
                 variantSizeArrayList.add(0, new ProductVariant(CONST.DEFAULT_EMPTY_ID, new ProductSize(CONST.DEFAULT_EMPTY_ID, CONST.DEFAULT_EMPTY_ID, getString(R.string.Select_size))));
             }
-            sizeVariantSpinnerAdapter.setProductSizeList(variantSizeArrayList);
+//            sizeVariantSpinnerAdapter.setProductSizeList(variantSizeArrayList);
 
             // Show related products
             if (productImagesAdapter != null) {

@@ -15,9 +15,9 @@ public class EndPoints {
     public static final String BANNERS                  = API_URL.concat("%d/banners");
     public static final String PAGES_SINGLE             = API_URL.concat("%d/pages/%d");
     public static final String PAGES_TERMS_AND_COND     = API_URL.concat("%d/pages/terms");
-    public static final String PRODUCTS                 = API_URL.concat("%d/products");
+    public static final String PRODUCTS                 = "https://api.myjson.com/bins/1owh4";
     public static final String PRODUCTS_SINGLE          = API_URL.concat("%d/products/%d");
-    public static final String PRODUCTS_SINGLE_RELATED  = API_URL.concat("%d/products/%d?include=related");
+    public static final String PRODUCTS_SINGLE_RELATED  = "https://api.myjson.com/bins/32ubc";
     public static final String USER_REGISTER            = API_URL.concat("%d/users/register");
     public static final String USER_LOGIN_EMAIL         = API_URL.concat("%d/login/email");
     public static final String USER_LOGIN_FACEBOOK      = API_URL.concat("%d/login/facebook");
