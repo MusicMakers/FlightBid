@@ -11,8 +11,8 @@ public class EndPoints {
 
     public static final String SHOPS                    = API_URL.concat(CONST.ORGANIZATION_ID + "/shops");
     public static final String SHOPS_SINGLE             = API_URL.concat(CONST.ORGANIZATION_ID + "/shops/%d");
-    public static final String NAVIGATION_DRAWER        = "https://api.myjson.com/bins/51yf8";
-    public static final String BANNERS                  = API_URL.concat("%d/banners");
+    public static final String NAVIGATION_DRAWER        = "https://api.myjson.com/bins/3g694";
+    public static final String BANNERS                  = "https://api.myjson.com/bins/22vk8";
     public static final String PAGES_SINGLE             = API_URL.concat("%d/pages/%d");
     public static final String PAGES_TERMS_AND_COND     = API_URL.concat("%d/pages/terms");
     public static final String PRODUCTS                 = "https://api.myjson.com/bins/1owh4";
