@@ -663,12 +663,12 @@ public class ProductFragment extends Fragment {
     }
 
     private void postProductToCart() {
-        if (selectedProductVariant == null || selectedProductVariant.getSize() == null ||
-                (selectedProductVariant.getId() == CONST.DEFAULT_EMPTY_ID &&
-                        selectedProductVariant.getSize().getId() == CONST.DEFAULT_EMPTY_ID)) {
-            MsgUtils.showToast(getActivity(), MsgUtils.TOAST_TYPE_NO_SIZE_SELECTED, null, MsgUtils.ToastLength.SHORT);
-            return;
-        }
+//        if (selectedProductVariant == null || selectedProductVariant.getSize() == null ||
+//                (selectedProductVariant.getId() == CONST.DEFAULT_EMPTY_ID &&
+//                        selectedProductVariant.getSize().getId() == CONST.DEFAULT_EMPTY_ID)) {
+//            MsgUtils.showToast(getActivity(), MsgUtils.TOAST_TYPE_NO_SIZE_SELECTED, null, MsgUtils.ToastLength.SHORT);
+//            return;
+//        }
         User user = SettingsMy.getActiveUser();
         if (user != null) {
             if (addToCartImage != null) addToCartImage.setVisibility(View.INVISIBLE);
@@ -677,7 +677,8 @@ public class ProductFragment extends Fragment {
             // get selected radio button from radioGroup
             JSONObject jo = new JSONObject();
             try {
-                jo.put(JsonUtils.TAG_PRODUCT_VARIANT_ID, selectedProductVariant.getId());
+                System.out.println("Debugging:" + (selectedProductVariant==null));
+                jo.put(JsonUtils.TAG_PRODUCT_VARIANT_ID, 5999894);
             } catch (JSONException e) {
                 Timber.e(e, "Create json add product to cart exception");
                 MsgUtils.showToast(getActivity(), MsgUtils.TOAST_TYPE_INTERNAL_ERROR, null, MsgUtils.ToastLength.SHORT);
