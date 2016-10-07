@@ -19,8 +19,8 @@
     <string name="Content_is_empty">Content is empty.</string>
 
     <!-- Strings related to splash screen -->
-    <string name="Select_shop">Select shop</string>
-    <string name="Select_the_country_where_you_want_to_shop">Select the country \n where you want to shop </string>
+    <string name="Select_shop">Select language</string>
+    <string name="Select_the_country_where_you_want_to_shop">Select the language </string>
     <string name="Continue">Continue</string>
 
     <!-- Main activity related -->
@@ -28,7 +28,7 @@
     <string name="All_categories">Continents</string>
     <string name="menu_action_search">Search</string>
     <string name="Type_your_dream_destination">Type your dream destination</string>
-    <string name="menu_action_cart">Shopping cart</string>
+    <string name="menu_action_cart">My Bids</string>
     <string name="menu_action_wishlist">Wishlist</string>
 
 
@@ -87,8 +87,8 @@
     <!-- Login related strings-->
     <string name="Log_in">Log in</string>
     <string name="Log_out">Log out</string>
-    <string name="Log_in_to_shop_via">Log in to shop via</string>
-    <string name="Log_in_to_shop_via_email">Log in to shop via email</string>
+    <string name="Log_in_to_shop_via">Log in to bid via</string>
+    <string name="Log_in_to_shop_via_email">Log in to bid via email</string>
     <string name="Dont_have_an_account">Don\'t have an account?</string>
     <string name="Skip">Skip</string>
     <string name="Forgot_your_password">Forget your password?</string>
@@ -108,13 +108,13 @@
 
 
     <!-- Cart and order related strings -->
-    <string name="Shopping_cart">Shopping cart</string>
-    <string name="Your_cart_is_empty">Your cart is empty</string>
-    <string name="START_SHOPPING">START SHOPPING</string>
-    <string name="SHIPPING_AND_PAYMENT">SHIPPING and PAYMENT</string>
+    <string name="Shopping_cart">My Bids</string>
+    <string name="Your_cart_is_empty">You have no actve bids</string>
+    <string name="START_SHOPPING">START BIDDING</string>
+    <string name="SHIPPING_AND_PAYMENT">BIDDING</string>
     <string name="Please_select_a_size">Please select a size.</string>
-    <string name="added_to_cart">added to cart</string>
-    <string name="Go_to_cart">Go to cart</string>
+    <string name="added_to_cart">added to My Bids</string>
+    <string name="Go_to_cart">Go to My Bids</string>
     <string name="Delete">Delete</string>
     <string name="Edit">Edit</string>
     <string name="Update_item">Update:</string>
