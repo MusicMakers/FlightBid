@@ -110,15 +110,15 @@ public class CartFragment extends Fragment {
 //            }
 //        });
 
-        Button order = (Button) view.findViewById(R.id.cart_order);
-        order.setOnClickListener(new OnSingleClickListener() {
-            @Override
-            public void onSingleClick(View v) {
-                if (getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).onOrderCreateSelected();
-                }
-            }
-        });
+//        Button order = (Button) view.findViewById(R.id.cart_order);
+//        order.setOnClickListener(new OnSingleClickListener() {
+//            @Override
+//            public void onSingleClick(View v) {
+//                if (getActivity() instanceof MainActivity) {
+//                    ((MainActivity) getActivity()).onOrderCreateSelected();
+//                }
+//            }
+//        });
 
         getCartContent();
         return view;
@@ -128,7 +128,6 @@ public class CartFragment extends Fragment {
         User user = SettingsMy.getActiveUser();
         if (user != null) {
             String url = String.format(EndPoints.CART, SettingsMy.getActualNonNullShop(getActivity()).getId());
-
             progressDialog.show();
             GsonRequest<Cart> getCart = new GsonRequest<>(Request.Method.GET, url, null, Cart.class,
                     new Response.Listener<Cart>() {
